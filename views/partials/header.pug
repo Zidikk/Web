@@ -1,0 +1,40 @@
+block variables
+  - var email = #{email};
+
+header
+    nav#nav-menu-container
+        h1.float-start #{pageTitle}
+        ul.nav-menu
+            li.menuItem
+                a(href='/index.html')
+                    i.fa-solid.fa-house
+                    | Home
+            li.menuItem
+                a(href='/portfolio.html')
+                    i.fa-solid.fa-briefcase
+                    | Portfolio
+            li.menuItem
+                a(href='/toDo.html')
+                    i.fa-solid.fa-list-check
+                    | TODO List
+            li.menuItem
+                a(href='/contact.html')
+                    i.fa-solid.fa-envelope
+                    | Contact
+            if !email
+                li
+                    form(action="login", method="get") 
+                        button.btn.btn-outline-primary.me-2(type='submit') Login
+            if !email
+                li       
+                    form(action='registration' method="get")
+                        button.btn.btn-primary(type='submit') Sign-up
+            if email
+                li.menuItem
+                    a(href='/creation.html')
+                        i.fa-solid.fa-envelope
+                        | Creation
+            if email 
+                li
+                    form(action='/' method="get")
+                        button.btn.btn-primary(type='submit') Log out

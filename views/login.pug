@@ -1,0 +1,17 @@
+extends partials/template
+
+block variables
+  - var pageTitle = "Login";
+
+block content
+    main
+        .container
+            h1.auth-header Добро пожаловать
+            form.auth-form(action='login' method='post')
+                label(for='login') Логин
+                input#login(type='text' required='' name='email')
+                label(for='password') Пароль
+                input#password(type='password' required='' name='password')
+                .button-wrapper
+                    button.auth-button(type='submit') Войти
+            a.auth-regist(href='registration') Зарегистрироваться

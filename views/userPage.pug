@@ -1,0 +1,17 @@
+extends partials/template
+
+block variables
+  - var pageTitle = "User Page";
+  - var userPosts = posts;
+
+block content
+    main
+        include ./partials/user.pug
+        section.posts
+            .container
+                .posts-header Ваши посты
+                .posts-wrapper
+                    each post in userPosts 
+                        li.user-post #{post.text}
+           
+

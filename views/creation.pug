@@ -1,0 +1,42 @@
+extends partials/template
+
+block variables
+  - var pageTitle = "Creation";
+
+block content
+    main
+        .quote-container
+            h1.quote-header Создать цитату
+            form.quote-form(action='quote' method='post')
+                label(for='author') Author:
+                input#author(type='text' required='' name='author')
+                label(for='text') Quote text:
+                input#text(type='text' required='' name='password')
+                .button-wrapper
+                    button.auth-button(type='submit') Создать цитату
+            h1.quote-header Обновить цитату
+            form.quote-form(action='quote' method='update')
+                label(for='author') Author:
+                input#author1(type='text' required='' name='author')
+                label(for='text') Quote text:
+                input#text1(type='text' required='' name='password')
+                .button-wrapper
+                    button.auth-button(type='submit') Обновить цитату
+        .post-container
+            h1.quote-header Создать пост
+            form.post-form(action='post' method='post')
+                label(for='author') Author:
+                input#author2(type='text' required='' name='author')
+                label(for='text') Post text:
+                input#text2(type='text' required='' name='password')
+                .button-wrapper
+                    button.auth-button(type='submit') Создать пост
+            h1.quote-header Обновить пост
+            form.post-form(action='post' method='update')
+                label(for='author') Author:
+                input#author3(type='text' required='' name='author')
+                label(for='text') Post text:
+                input#text3(type='text' required='' name='password')
+                .button-wrapper
+                    button.auth-button(type='submit') Создать пост
+    script(src='js/quoteForm.js')

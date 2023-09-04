@@ -1,0 +1,16 @@
+extends partials/template
+
+block variables
+  - var pageTitle = "Registration";
+
+block content
+    main
+        .container
+            h1.auth-header Регистрация
+            form.auth-form(action='registration' method='post')
+                label(for='login') Логин
+                input#login(type='text' required='' name='email')
+                label(for='password') Пароль
+                input#password(type='password' required='' name='password')
+                .button-wrapper
+                    button.auth-button.regist-button(type='submit') Создать аккаунт

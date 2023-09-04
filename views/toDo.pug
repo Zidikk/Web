@@ -1,0 +1,17 @@
+extends partials/template
+
+block variables
+  - var pageTitle = "toDo";
+
+block content
+    main
+        .to-do-container
+            h1 TODO List
+            #todo
+                form.add-todo
+                    input(type='text' placeholder='Add task' name='item' autocomplete='off' required='')
+                    input(type='submit' value=' ')
+                ul.todo-list
+            .remove-List &Ocy;&chcy;&icy;&scy;&tcy;&icy;&tcy;&softcy; &vcy;&scy;&iecy;
+        #loadTime
+    script(src='js/toDoScript.js')

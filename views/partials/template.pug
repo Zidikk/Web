@@ -1,0 +1,14 @@
+block variables
+
+doctype html
+html(lang="ru")
+include head
+    title= pageTitle
+body
+    include header
+        h1.template-content
+    .template-content
+        block content
+    include footer
+    script(src='js/counterTime.js')
+    script(src='https://unpkg.com/swiper@7/swiper-bundle.min.js')

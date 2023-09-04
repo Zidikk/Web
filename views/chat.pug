@@ -1,0 +1,46 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        meta(http-equiv='X-UA-Compatible' content='ie=edge')
+        title Websockets Client
+        script(src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js')
+        script(src='/socket.io/socket.io.js')
+    body
+        #v-app
+            h1 {{ title }}
+            form
+                input(v-model='text' type='text')
+                button(type='submit' @click.prevent='sendMessage()') Send
+            p
+            ul
+                li(v-for='msg of messages') {{ msg }}
+            p
+        script.
+          var app = new Vue({
+            el: '#v-app',
+            data: {
+              title: 'Chat',
+              text: '',
+              messages: [],
+              socket: null,
+            },
+            methods: {
+              sendMessage() {
+                console.log(`send: ${this.text}`);
+                this.socket.emit('msgToServer', this.text);
+                this.text = "";
+              },
+              receiveMessage(msg) {
+                console.log(`recv: ${msg}`);
+                this.messages.push(msg);
+              }
+            },
+            created() {
+              this.socket = io('https://is-web-y24-zidikk.onrender.com/');
+              this.socket.on('msgToClient', (msg) => {
+                this.receiveMessage(msg);
+              });
+            }
+          });

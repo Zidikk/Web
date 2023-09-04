@@ -1,0 +1,23 @@
+extends partials/template
+
+
+block variables
+  - var pageTitle = "Contact";
+
+block content
+    main
+        h1 &Dcy;&acy;,&dcy;&acy;, &YAcy;
+        // Slider main container
+        .mySwiper
+            // Additional required wrapper
+            .swiper-wrapper
+                // Slides
+                .swiper-slide
+                    img(src='img/me.jpg' alt='12')
+                .swiper-slide
+                    img(src='img/me.jpg' alt='1211')
+                .swiper-slide
+                    img(src='img/me.jpg' alt='sw')
+                .swiper-slide
+                    img(src='img/me.jpg' alt='wqe')
+            script(src='js/swiper.js' type='module')
